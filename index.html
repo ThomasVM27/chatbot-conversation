@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1">
+
+<title>Conversation transférée</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    max-width:900px;
+    margin:auto;
+    padding:30px;
+    background:#f4f4f4;
+}
+
+h1{
+    text-align:center;
+}
+
+#conversation{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    white-space:pre-wrap;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Conversation transférée</h1>
+
+<div id="conversation"></div>
+
+<script>
+
+const params =
+new URLSearchParams(
+window.location.search
+);
+
+const conversation =
+params.get("conversation");
+
+document
+.getElementById("conversation")
+.textContent =
+conversation
+? decodeURIComponent(conversation)
+: "Aucune conversation reçue.";
+
+</script>
+
+</body>
+</html>
